@@ -1,28 +1,55 @@
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import Navbar from './components/layout/Navbar'
+import Footer from './components/layout/Footer'
+import Home from './pages/Home'
+import Explore from './pages/Explore'
+import AssetDetail from './pages/AssetDetail'
+import Learn from './pages/Learn'
+import SignIn from './pages/SignIn'
+import SignUp from './pages/SignUp'
 import './App.css'
-import Header from './components/Header'
-import Hero from './components/Hero'
-import CryptoExplore from './components/CryptoExplore'
-import AdvancedTrader from './components/AdvancedTrader'
-import ZeroFees from './components/ZeroFees'
-import Countless from './components/Countless'
-import CryptoBasics from './components/CryptoBasics'
-import TakeControl from './components/TakeControl'
-import Footer from './components/Footer'
 
-function App() {
+/* Pages that use the full Navbar + Footer layout */
+function Layout({ children }) {
   return (
-    <div className="min-h-screen bg-white">
-      <Header />
-      <Hero />
-      <CryptoExplore />
-      <AdvancedTrader />
-      <ZeroFees />
-      <Countless />
-      <CryptoBasics />
-      <TakeControl />
+    <div className="min-h-screen bg-white flex flex-col">
+      <Navbar />
+      <main className="flex-1">{children}</main>
       <Footer />
     </div>
   )
 }
 
-export default App
+/* Auth pages — no footer, minimal layout */
+function AuthLayout({ children }) {
+  return (
+    <div className="min-h-screen">
+      <Navbar />
+      {children}
+    </div>
+  )
+}
+
+export default function App() {
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Layout><Home /></Layout>} />
+        <Route path="/explore" element={<Layout><Explore /></Layout>} />
+        <Route path="/asset/:id" element={<Layout><AssetDetail /></Layout>} />
+        <Route path="/learn" element={<Layout><Learn /></Layout>} />
+        <Route path="/signin" element={<AuthLayout><SignIn /></AuthLayout>} />
+        <Route path="/signup" element={<AuthLayout><SignUp /></AuthLayout>} />
+        {/* 404 fallback */}
+        <Route path="*" element={
+          <Layout>
+            <div className="min-h-[60vh] flex flex-col items-center justify-center gap-4">
+              <h1 className="text-[48px] font-normal text-gray-900">Page not found</h1>
+              <a href="/" className="text-blue-600 hover:underline text-[17px]">Go home</a>
+            </div>
+          </Layout>
+        } />
+      </Routes>
+    </BrowserRouter>
+  )
+}
