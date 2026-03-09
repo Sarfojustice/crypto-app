@@ -279,7 +279,7 @@ function TakeControl() {
             <p className="text-[18px] text-gray-700 mb-8">
               Start your portfolio today and discover crypto
             </p>
-            <form onSubmit={handleSubmit} className="flex items-center gap-3">
+            <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3">
               <input
                 type="email"
                 placeholder="satoshi@nakamoto.com"
@@ -287,7 +287,7 @@ function TakeControl() {
                 onChange={(e) => setEmail(e.target.value)}
                 className="flex-1 px-6 py-4 text-[16px] text-gray-900 placeholder-gray-400 border border-gray-300 rounded-2xl outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-100 transition-all"
               />
-              <button type="submit" className="px-7 py-4 text-[16px] font-semibold text-white bg-blue-600 rounded-full hover:bg-blue-700 transition-colors whitespace-nowrap">
+              <button type="submit" className="w-full sm:w-auto px-7 py-4 text-[16px] font-semibold text-white bg-blue-600 rounded-full hover:bg-blue-700 transition-colors whitespace-nowrap">
                 Sign up
               </button>
             </form>
