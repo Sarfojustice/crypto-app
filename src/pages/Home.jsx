@@ -19,7 +19,7 @@ function Hero() {
         <div className="flex flex-col lg:flex-row lg:items-center lg:gap-12 lg:min-h-[780px]">
 
           {/* Text — top on mobile, right on desktop */}
-          <div className="order-1 lg:order-2 flex-1 max-w-full lg:max-w-[560px] pt-8 lg:pt-0">
+          <div className="order-1 lg:order-2 flex-1 max-w-full lg:max-w-[560px] pt-5 lg:pt-0">
             <h1 className="text-[50px] sm:text-[68px] lg:text-[80px] leading-[1.05] text-gray-900 mb-5 lg:mb-7 font-normal" style={{ letterSpacing: '-0.02em' }}>
               The future of finance is here.
             </h1>
@@ -41,7 +41,7 @@ function Hero() {
           </div>
 
           {/* Image — bottom on mobile, left on desktop */}
-          <div className="order-2 lg:order-1 flex-shrink-0 w-full lg:w-[660px] mt-8 lg:mt-12">
+          <div className="order-2 lg:order-1 flex-shrink-0 w-full lg:w-[660px] mt-4 lg:mt-12">
             <img src="/hero.avif" alt="Coinbase app" className="w-full h-auto object-contain rounded-[40px] lg:rounded-[60px]" />
           </div>
         </div>
@@ -69,8 +69,8 @@ function CryptoExploreSection() {
 
   return (
     <section className="w-full bg-[#f2f2f2]">
-      <div className="max-w-[1440px] mx-auto px-5 lg:px-10 py-20 lg:py-28">
-        <div className="flex flex-col lg:flex-row lg:items-center gap-12 lg:gap-16">
+      <div className="max-w-[1440px] mx-auto px-5 lg:px-10 py-10 lg:py-28">
+        <div className="flex flex-col lg:flex-row lg:items-center gap-8 lg:gap-16">
 
           <div className="flex-1 max-w-[520px]">
             <h2 className="text-[40px] sm:text-[48px] lg:text-[52px] leading-[1.08] text-gray-900 mb-5 font-normal" style={{ letterSpacing: '-0.02em' }}>
@@ -85,7 +85,7 @@ function CryptoExploreSection() {
           </div>
 
           {/* Dark card with live data */}
-          <div className="flex-1 bg-[#0a0b0d] rounded-3xl overflow-hidden max-w-2xl ml-auto">
+          <div className="flex-1 bg-[#0a0b0d] rounded-3xl overflow-hidden lg:max-w-2xl lg:ml-auto">
             <div className="flex items-center gap-2 p-6 pb-3">
               {tabs.map((tab) => (
                 <button
@@ -115,8 +115,8 @@ function CryptoExploreSection() {
 function AdvancedTrader() {
   return (
     <section className="w-full bg-white">
-      <div className="max-w-[1440px] mx-auto px-5 lg:px-10 py-20 lg:py-28">
-        <div className="max-w-6xl mx-auto flex flex-col lg:flex-row lg:items-center gap-12 lg:gap-20">
+      <div className="max-w-[1440px] mx-auto px-5 lg:px-10 py-10 lg:py-28">
+        <div className="max-w-6xl mx-auto flex flex-col lg:flex-row lg:items-center gap-8 lg:gap-20">
           <div className="flex-1">
             <div className="bg-[#0d0d0f] rounded-[50px] overflow-hidden aspect-[4/3] pt-6 px-6 pb-0 flex items-end justify-center">
               <img src="/advanced.avif" alt="Advanced trading tools" className="w-full h-auto object-contain" />
@@ -143,10 +143,10 @@ function AdvancedTrader() {
 function ZeroFees() {
   return (
     <section className="w-full bg-white">
-      <div className="max-w-[1440px] mx-auto px-5 lg:px-10 py-20 lg:py-28">
-        <div className="max-w-6xl mx-auto flex flex-col lg:flex-row lg:items-center gap-12 lg:gap-20">
-          <div className="flex-1 max-w-[520px]">
-            <div className="inline-flex items-center gap-2 border border-gray-300 rounded-full px-4 py-2 mb-8">
+      <div className="max-w-[1440px] mx-auto px-5 lg:px-10 py-10 lg:py-28">
+        <div className="max-w-6xl mx-auto flex flex-col lg:flex-row lg:items-center gap-8 lg:gap-20">
+          <div className="flex-1 max-w-[520px] order-2 lg:order-1">
+            <div className="inline-flex items-center gap-2 border border-gray-300 rounded-full px-4 py-2 mb-5 lg:mb-8">
               <img src="/logo.svg" alt="Coinbase" className="w-4 h-4" />
               <span className="text-[13px] font-semibold text-gray-900 tracking-widest uppercase">Coinbase One</span>
             </div>
@@ -160,7 +160,7 @@ function ZeroFees() {
               Claim free trial
             </button>
           </div>
-          <div className="flex-1">
+          <div className="flex-1 order-1 lg:order-2">
             <div className="bg-[#f2f2f2] rounded-[50px] overflow-hidden aspect-[4/3] pt-6 px-8 pb-0 flex items-end justify-center">
               <img src="/zero_fees_us.avif" alt="Zero trading fees with Coinbase One" className="w-3/4 h-auto object-contain" />
             </div>
@@ -175,15 +175,15 @@ function ZeroFees() {
 function Countless() {
   return (
     <section className="w-full bg-white">
-      <div className="max-w-[1440px] mx-auto px-5 lg:px-10 py-20 lg:py-28">
-        <div className="max-w-6xl mx-auto flex flex-col lg:flex-row lg:items-center gap-12 lg:gap-20">
+      <div className="max-w-[1440px] mx-auto px-5 lg:px-10 py-10 lg:py-28">
+        <div className="max-w-6xl mx-auto flex flex-col lg:flex-row lg:items-center gap-8 lg:gap-20">
           <div className="flex-1">
             <div className="bg-[#f2f2f2] rounded-[50px] overflow-hidden aspect-[4/3] pt-6 px-8 pb-0 flex items-end justify-center">
               <img src="/countless.avif" alt="Base App" className="w-3/4 h-auto object-contain" />
             </div>
           </div>
           <div className="flex-1 max-w-[520px]">
-            <div className="inline-flex items-center gap-2 border border-gray-300 rounded-full px-4 py-2 mb-8">
+            <div className="inline-flex items-center gap-2 border border-gray-300 rounded-full px-4 py-2 mb-5 lg:mb-8">
               <img src="/logo.svg" alt="Coinbase" className="w-4 h-4" />
               <span className="text-[13px] font-semibold text-gray-900 tracking-widest uppercase">Base App</span>
             </div>
@@ -225,8 +225,8 @@ const learnArticles = [
 function CryptoBasics() {
   return (
     <section className="w-full bg-[#f2f2f2]">
-      <div className="max-w-[1440px] mx-auto px-5 lg:px-10 py-20 lg:py-28">
-        <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-8 mb-14">
+      <div className="max-w-[1440px] mx-auto px-5 lg:px-10 py-10 lg:py-28">
+        <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-6 mb-8 lg:mb-14">
           <h2 className="text-[40px] sm:text-[52px] lg:text-[60px] leading-[1.06] text-gray-900 max-w-[480px] font-normal" style={{ letterSpacing: '-0.02em' }}>
             New to crypto? Learn some crypto basics
           </h2>
@@ -240,7 +240,7 @@ function CryptoBasics() {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
           {learnArticles.map((article) => (
             <Link to="/learn" key={article.title} className="group flex flex-col gap-5 cursor-pointer">
               <div className="w-full aspect-[16/10] rounded-2xl overflow-hidden">
@@ -270,8 +270,8 @@ function TakeControl() {
 
   return (
     <section className="w-full bg-white overflow-hidden">
-      <div className="max-w-[1440px] mx-auto px-5 lg:px-10 py-20 lg:py-28">
-        <div className="flex flex-col lg:flex-row lg:items-center gap-12 lg:gap-20">
+      <div className="max-w-[1440px] mx-auto px-5 lg:px-10 py-10 lg:py-28">
+        <div className="flex flex-col lg:flex-row lg:items-center gap-8 lg:gap-20">
           <div className="flex-1 max-w-[520px]">
             <h2 className="text-[56px] sm:text-[68px] lg:text-[80px] leading-[1.04] text-gray-900 mb-6 font-normal" style={{ letterSpacing: '-0.02em' }}>
               Take control of your money
