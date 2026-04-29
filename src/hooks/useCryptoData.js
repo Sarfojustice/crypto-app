@@ -1,4 +1,5 @@
 import { useState, useEffect, useCallback } from 'react'
+import { API_URL } from '../api/config'
 
 /**
  * Custom hook to fetch live crypto prices from CoinGecko
@@ -14,7 +15,7 @@ export default function useCryptoData(perPage = 20) {
   const fetchData = useCallback(async () => {
     try {
       const [cryptoRes, rateRes] = await Promise.all([
-        fetch('http://localhost:5001/api/crypto'),
+        fetch(`${API_URL}/crypto`),
         fetch('https://open.er-api.com/v6/latest/USD'),
       ])
 

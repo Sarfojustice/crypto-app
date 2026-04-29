@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { API_URL } from '../api/config'
 
 export default function Profile() {
   const [user, setUser] = useState(null)
@@ -10,7 +11,7 @@ export default function Profile() {
   useEffect(() => {
     const fetchProfile = async () => {
       try {
-        const response = await fetch('http://localhost:5001/api/auth/profile', {
+        const response = await fetch(`${API_URL}/auth/profile`, {
           headers: {
             // If using cookies, we need credentials: 'include'
             // If using Bearer token, we need to store it somewhere. 
@@ -49,7 +50,7 @@ export default function Profile() {
       )}
       <button 
         onClick={async () => {
-          await fetch('http://localhost:5001/api/auth/logout')
+          await fetch(`${API_URL}/auth/logout`)
           navigate('/signin')
         }}
         className="mt-6 px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600"
