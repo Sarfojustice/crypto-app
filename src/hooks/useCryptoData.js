@@ -14,9 +14,7 @@ export default function useCryptoData(perPage = 20) {
   const fetchData = useCallback(async () => {
     try {
       const [cryptoRes, rateRes] = await Promise.all([
-        fetch(
-          `https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=${perPage}&page=1&sparkline=false&price_change_percentage=24h`
-        ),
+        fetch('http://localhost:5001/api/crypto'),
         fetch('https://open.er-api.com/v6/latest/USD'),
       ])
 
@@ -25,7 +23,8 @@ export default function useCryptoData(perPage = 20) {
       const cryptoData = await cryptoRes.json()
       const rateData = await rateRes.json()
 
-      setCoins(cryptoData)
+      // The backend returns { status: 'success', data: { cryptos: [...] } }
+      setCoins(cryptoData.data.cryptos)
       setGhsRate(rateData.rates.GHS)
       setLoading(false)
       setError(false)

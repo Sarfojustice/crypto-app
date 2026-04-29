@@ -85,6 +85,9 @@ export default function Navbar() {
             </svg>
           </button>
 
+          <Link to="/profile" className="px-5 py-2.5 text-[15px] font-medium text-gray-900 hover:text-blue-600 transition-colors">
+            Profile
+          </Link>
           <Link to="/signin" className="px-5 py-2.5 text-[15px] font-medium text-gray-900 border border-gray-300 rounded-full hover:bg-gray-50 transition-colors">
             Sign in
           </Link>

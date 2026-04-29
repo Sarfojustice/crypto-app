@@ -7,6 +7,7 @@ import AssetDetail from './pages/AssetDetail'
 import Learn from './pages/Learn'
 import SignIn from './pages/SignIn'
 import SignUp from './pages/SignUp'
+import Profile from './pages/Profile'
 import './App.css'
 
 /* Pages that use the full Navbar + Footer layout */
@@ -38,6 +39,7 @@ export default function App() {
         <Route path="/explore" element={<Layout><Explore /></Layout>} />
         <Route path="/asset/:id" element={<Layout><AssetDetail /></Layout>} />
         <Route path="/learn" element={<Layout><Learn /></Layout>} />
+        <Route path="/profile" element={<Layout><Profile /></Layout>} />
         <Route path="/signin" element={<AuthLayout><SignIn /></AuthLayout>} />
         <Route path="/signup" element={<AuthLayout><SignUp /></AuthLayout>} />
         {/* 404 fallback */}

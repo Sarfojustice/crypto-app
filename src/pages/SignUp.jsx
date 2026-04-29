@@ -4,11 +4,29 @@ import { Link, useSearchParams, useNavigate } from 'react-router-dom'
 export default function SignUp() {
   const [searchParams] = useSearchParams()
   const navigate = useNavigate()
+  const [name, setName] = useState('')
   const [email, setEmail] = useState(searchParams.get('email') || '')
+  const [password, setPassword] = useState('')
+  const [error, setError] = useState('')
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
-    if (email) navigate('/')
+    setError('')
+    try {
+      const response = await fetch('http://localhost:5001/api/auth/register', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name, email, password }),
+      })
+      const data = await response.json()
+      if (response.ok) {
+        navigate('/profile')
+      } else {
+        setError(data.message || 'Registration failed')
+      }
+    } catch (err) {
+      setError('Something went wrong. Please try again.')
+    }
   }
 
   return (
@@ -30,7 +48,20 @@ export default function SignUp() {
             Access all that Coinbase has to offer with a single account.
           </p>
 
+          {error && <p className="text-red-500 mb-4">{error}</p>}
+
           <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+            <div>
+              <label className="block text-[15px] font-semibold text-white mb-2">Name</label>
+              <input
+                type="text"
+                placeholder="Your full name"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                required
+                className="w-full px-4 py-4 text-[16px] text-white placeholder-gray-500 bg-transparent border border-[#2a2b2f] rounded-2xl outline-none focus:border-blue-500 transition-all"
+              />
+            </div>
             <div>
               <label className="block text-[15px] font-semibold text-white mb-2">Email</label>
               <input
@@ -38,6 +69,18 @@ export default function SignUp() {
                 placeholder="Your email address"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
+                required
+                className="w-full px-4 py-4 text-[16px] text-white placeholder-gray-500 bg-transparent border border-[#2a2b2f] rounded-2xl outline-none focus:border-blue-500 transition-all"
+              />
+            </div>
+            <div>
+              <label className="block text-[15px] font-semibold text-white mb-2">Password</label>
+              <input
+                type="password"
+                placeholder="Choose a password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
                 className="w-full px-4 py-4 text-[16px] text-white placeholder-gray-500 bg-transparent border border-[#2a2b2f] rounded-2xl outline-none focus:border-blue-500 transition-all"
               />
             </div>
