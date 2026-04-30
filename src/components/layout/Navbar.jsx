@@ -1,8 +1,11 @@
 import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
+import { useAuth } from '../../context/AuthContext'
+import { API_URL } from '../../api/config'
 
 /* Main navigation bar — sticky at top, responsive */
 export default function Navbar() {
+  const { user, logout } = useAuth()
   const [menuOpen, setMenuOpen] = useState(false)
   const [searchOpen, setSearchOpen] = useState(false)
   const [searchQuery, setSearchQuery] = useState('')
@@ -85,15 +88,32 @@ export default function Navbar() {
             </svg>
           </button>
 
-          <Link to="/profile" className="px-5 py-2.5 text-[15px] font-medium text-gray-900 hover:text-blue-600 transition-colors">
-            Profile
-          </Link>
-          <Link to="/signin" className="px-5 py-2.5 text-[15px] font-medium text-gray-900 border border-gray-300 rounded-full hover:bg-gray-50 transition-colors">
-            Sign in
-          </Link>
-          <Link to="/signup" className="px-5 py-2.5 text-[15px] font-medium text-white bg-blue-600 rounded-full hover:bg-blue-700 transition-colors">
-            Sign up
-          </Link>
+          {user ? (
+            <>
+              <Link to="/profile" className="px-5 py-2.5 text-[15px] font-medium text-blue-600 hover:text-blue-700 transition-colors">
+                {user.name}
+              </Link>
+              <button 
+                onClick={async () => {
+                  await fetch(`${API_URL}/auth/logout`, { credentials: 'include' })
+                  logout()
+                  navigate('/signin')
+                }}
+                className="px-5 py-2.5 text-[15px] font-medium text-gray-900 border border-gray-300 rounded-full hover:bg-gray-50 transition-colors"
+              >
+                Logout
+              </button>
+            </>
+          ) : (
+            <>
+              <Link to="/signin" className="px-5 py-2.5 text-[15px] font-medium text-gray-900 border border-gray-300 rounded-full hover:bg-gray-50 transition-colors">
+                Sign in
+              </Link>
+              <Link to="/signup" className="px-5 py-2.5 text-[15px] font-medium text-white bg-blue-600 rounded-full hover:bg-blue-700 transition-colors">
+                Sign up
+              </Link>
+            </>
+          )}
         </div>
 
         {/* Mobile right side */}

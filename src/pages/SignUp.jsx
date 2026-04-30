@@ -1,8 +1,10 @@
 import { useState } from 'react'
 import { Link, useSearchParams, useNavigate } from 'react-router-dom'
 import { API_URL } from '../api/config'
+import { useAuth } from '../context/AuthContext'
 
 export default function SignUp() {
+  const { login } = useAuth()
   const [searchParams] = useSearchParams()
   const navigate = useNavigate()
   const [name, setName] = useState('')
@@ -22,6 +24,7 @@ export default function SignUp() {
       })
       const data = await response.json()
       if (response.ok) {
+        login(data.data.user)
         navigate('/profile')
       } else {
         setError(data.message || 'Registration failed')
