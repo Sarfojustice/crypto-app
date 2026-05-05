@@ -44,9 +44,12 @@ export default function SignIn() {
       <div className="flex justify-center mt-16 sm:mt-24">
         <div className="w-full max-w-[480px]">
 
-          <h1 className="text-[32px] sm:text-[36px] font-bold text-white mb-8 leading-tight">
-            Sign in to Crypto App</h1><p className="text-yellow-400 text-[14px] font-medium mb-8">Demo app – do not use your real password</p><p className="text-yellow-400 text-[14px] font-medium mb-8">Demo app – do not use your real password</p>
+          <h1 className="text-[32px] sm:text-[36px] font-bold text-white mb-2 leading-tight">
+            Sign in to Crypto App
           </h1>
+          <p className="text-yellow-400 text-[14px] font-medium mb-8">
+            Demo app – do not use your real password
+          </p>
 
           {error && <p className="text-red-500 mb-4">{error}</p>}
 

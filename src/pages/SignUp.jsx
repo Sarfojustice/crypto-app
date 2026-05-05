@@ -46,9 +46,12 @@ export default function SignUp() {
       <div className="flex justify-center mt-16 sm:mt-24">
         <div className="w-full max-w-[480px]">
 
-          <h1 className="text-[32px] sm:text-[36px] font-bold text-white mb-3 leading-tight">
+          <h1 className="text-[32px] sm:text-[36px] font-bold text-white mb-2 leading-tight">
             Create your account
           </h1>
+          <p className="text-yellow-400 text-[14px] font-medium mb-3">
+            Demo app – do not use your real password
+          </p>
           <p className="text-[16px] text-gray-400 mb-8">
             Access all that our student project has to offer with a single account.
           </p>
