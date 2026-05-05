@@ -39,7 +39,7 @@ export default function SignUp() {
 
       {/* Logo top-left */}
       <Link to="/">
-        <img src="/logo.svg" alt="Coinbase" className="w-9 h-9" style={{ filter: 'brightness(0) invert(1)' }} />
+        <img src="/logo.svg" alt="Crypto App" className="w-9 h-9" style={{ filter: 'brightness(0) invert(1)' }} />
       </Link>
 
       {/* Centered form */}
@@ -50,7 +50,7 @@ export default function SignUp() {
             Create your account
           </h1>
           <p className="text-[16px] text-gray-400 mb-8">
-            Access all that Coinbase has to offer with a single account.
+            Access all that our student project has to offer with a single account.
           </p>
 
           {error && <p className="text-red-500 mb-4">{error}</p>}

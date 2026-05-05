@@ -37,7 +37,7 @@ export default function Navbar() {
         {/* Logo + desktop nav */}
         <div className="flex items-center gap-10">
           <Link to="/" className="flex-shrink-0">
-            <img src="/logo.svg" alt="Coinbase" className="h-11 w-11" />
+            <img src="/logo.svg" alt="Crypto App" className="h-11 w-11" />
           </Link>
 
           <nav className="hidden lg:flex items-center gap-7">

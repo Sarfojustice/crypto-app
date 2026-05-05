@@ -8,12 +8,14 @@ import Learn from './pages/Learn'
 import SignIn from './pages/SignIn'
 import SignUp from './pages/SignUp'
 import Profile from './pages/Profile'
+import WarningBanner from './components/common/WarningBanner'
 import './App.css'
 
 /* Pages that use the full Navbar + Footer layout */
 function Layout({ children }) {
   return (
     <div className="min-h-screen bg-white flex flex-col">
+      <WarningBanner />
       <Navbar />
       <main className="flex-1">{children}</main>
       <Footer />
@@ -25,6 +27,7 @@ function Layout({ children }) {
 function AuthLayout({ children }) {
   return (
     <div className="min-h-screen">
+      <WarningBanner />
       <Navbar />
       {children}
     </div>

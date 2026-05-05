@@ -91,10 +91,10 @@ export default function Explore() {
                   Explore crypto
                 </h1>
                 <p className="text-[14px] text-gray-500 flex items-center gap-1.5">
-                  Coinbase 50 Index is up
+                  Crypto App 50 Index is up
                   <span className="text-green-500 font-semibold flex items-center gap-0.5">↗ 0.47%</span>
                   (24hrs)
-                  <span className="w-4 h-4 rounded-full border border-gray-400 text-gray-400 text-[11px] flex items-center justify-center cursor-help" title="Coinbase 50 Index">i</span>
+                  <span className="w-4 h-4 rounded-full border border-gray-400 text-gray-400 text-[11px] flex items-center justify-center cursor-help" title="Crypto App 50 Index">i</span>
                 </p>
               </div>
               <div className="relative w-full sm:max-w-[500px]">
@@ -274,7 +274,7 @@ export default function Explore() {
             <div className="mt-10 bg-blue-600 rounded-3xl p-10 flex items-center justify-between overflow-hidden">
               <div>
                 <h3 className="text-[26px] font-bold text-white leading-tight mb-6 max-w-[380px]">
-                  Create a Coinbase account to trade crypto. It's quick, easy, and secure.
+                  Create a Crypto App account to trade crypto. It's quick, easy, and secure.
                 </h3>
                 <button
                   onClick={() => navigate('/signup')}
@@ -354,10 +354,10 @@ export default function Explore() {
               </div>
             </div>
 
-            {/* New on Coinbase */}
+            {/* New on Crypto App */}
             <div>
               <div className="flex items-center justify-between mb-3">
-                <h3 className="text-[17px] font-bold text-gray-900">New on Coinbase</h3>
+                <h3 className="text-[17px] font-bold text-gray-900">New on Crypto App</h3>
                 <NavArrows
                   onPrev={() => setNewPage(p => Math.max(0, p - 1))}
                   onNext={() => setNewPage(p => Math.min(4, p + 1))}

@@ -37,7 +37,7 @@ export default function SignIn() {
 
       {/* Logo top-left */}
       <Link to="/">
-        <img src="/logo.svg" alt="Coinbase" className="w-9 h-9" style={{ filter: 'brightness(0) invert(1)' }} />
+        <img src="/logo.svg" alt="Crypto App" className="w-9 h-9" style={{ filter: 'brightness(0) invert(1)' }} />
       </Link>
 
       {/* Centered form */}
@@ -45,7 +45,7 @@ export default function SignIn() {
         <div className="w-full max-w-[480px]">
 
           <h1 className="text-[32px] sm:text-[36px] font-bold text-white mb-8 leading-tight">
-            Sign in to Coinbase
+            Sign in to Crypto App</h1><p className="text-yellow-400 text-[14px] font-medium mb-8">Demo app – do not use your real password</p><p className="text-yellow-400 text-[14px] font-medium mb-8">Demo app – do not use your real password</p>
           </h1>
 
           {error && <p className="text-red-500 mb-4">{error}</p>}

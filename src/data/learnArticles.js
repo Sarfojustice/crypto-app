@@ -4,7 +4,7 @@ export const articles = [
     id: 1,
     category: 'Basics',
     title: 'USDC: The digital dollar for the global crypto economy',
-    excerpt: 'Coinbase believes crypto will be part of the solution for creating an open financial system that is both more efficient and more equitable.',
+    excerpt: 'Crypto App believes crypto will be part of the solution for creating an open financial system that is both more efficient and more equitable.',
     readTime: '5 min read',
     img: 'https://images.unsplash.com/photo-1621761191319-c6fb62004040?w=600&q=80',
   },

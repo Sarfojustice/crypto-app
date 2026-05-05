@@ -17,11 +17,11 @@ const columns = [
     sections: [
       {
         heading: 'Individuals',
-        links: ['Buy & sell', 'Earn free crypto', 'Base App', 'Coinbase One', 'Debit Card'],
+        links: ['Buy & sell', 'Earn free crypto', 'Base App', 'Crypto App One', 'Debit Card'],
       },
       {
         heading: 'Businesses',
-        links: ['Asset Listings', 'Coinbase Business', 'Payments', 'Commerce', 'Token Manager'],
+        links: ['Asset Listings', 'Crypto App Business', 'Payments', 'Commerce', 'Token Manager'],
       },
       {
         heading: 'Institutions',
@@ -60,7 +60,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[auto_1fr_1fr_1fr_1fr] gap-10 lg:gap-8 mb-16">
           {/* Logo */}
           <div className="lg:pt-1">
-            <Link to="/"><img src="/logo.svg" alt="Coinbase" className="w-12 h-12" /></Link>
+            <Link to="/"><img src="/logo.svg" alt="Crypto App" className="w-12 h-12" /></Link>
           </div>
 
           {columns.map((col, ci) => (
@@ -81,6 +81,15 @@ export default function Footer() {
               ))}
             </div>
           ))}
+        </div>
+
+        {/* Demo Disclaimer */}
+        <div className="bg-white border border-gray-200 rounded-xl p-6 mb-8">
+          <p className="text-[14px] text-gray-600 leading-relaxed text-center">
+            <strong>Disclaimer:</strong> This is a demo project created for educational purposes. 
+            Do not enter any real personal information, including real emails or passwords. 
+            All data on this site is simulated and not connected to any real financial services.
+          </p>
         </div>
 
         {/* Social icons */}
@@ -105,7 +114,7 @@ export default function Footer() {
         {/* Bottom bar */}
         <div className="border-t border-gray-300 pt-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
           <div className="flex items-center gap-2 text-[14px] text-gray-500 flex-wrap">
-            <span>© 2026 Coinbase</span>
+            <span>© 2026 Crypto App | Student Project</span>
             <span>•</span>
             <a href="#" className="hover:text-gray-800 transition-colors">Privacy</a>
             <span>•</span>

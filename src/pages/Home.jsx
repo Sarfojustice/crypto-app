@@ -42,7 +42,7 @@ function Hero() {
 
           {/* Image — bottom on mobile, left on desktop */}
           <div className="order-2 lg:order-1 flex-shrink-0 w-full lg:w-[660px] mt-4 lg:mt-12">
-            <img src="/hero.avif" alt="Coinbase app" className="w-full h-auto object-contain rounded-[40px] lg:rounded-[60px]" />
+            <img src="/hero.avif" alt="Crypto App app" className="w-full h-auto object-contain rounded-[40px] lg:rounded-[60px]" />
           </div>
         </div>
       </div>
@@ -51,7 +51,7 @@ function Hero() {
 }
 
 /* ─── Crypto Explore Section ────────────────────────────────────── */
-const tabs = ['Tradable', 'Top gainers', 'New on Coinbase']
+const tabs = ['Tradable', 'Top gainers', 'New on Crypto App']
 
 function CryptoExploreSection() {
   const [activeTab, setActiveTab] = useState('Tradable')
@@ -127,7 +127,7 @@ function AdvancedTrader() {
               Powerful tools, designed for the advanced trader.
             </h2>
             <p className="text-[17px] text-gray-500 leading-relaxed mb-8">
-              Powerful analytical tools with the safety and security of Coinbase deliver the ultimate trading experience. Tap into sophisticated charting capabilities, real-time order books, and deep liquidity across hundreds of markets.
+              Powerful analytical tools with the safety and security of Crypto App deliver the ultimate trading experience. Tap into sophisticated charting capabilities, real-time order books, and deep liquidity across hundreds of markets.
             </p>
             <button className="px-7 py-4 text-[17px] font-semibold text-white bg-gray-900 rounded-full hover:bg-gray-800 transition-colors">
               Start trading
@@ -147,8 +147,8 @@ function ZeroFees() {
         <div className="max-w-6xl mx-auto flex flex-col lg:flex-row lg:items-center gap-8 lg:gap-20">
           <div className="flex-1 max-w-[520px] order-2 lg:order-1">
             <div className="inline-flex items-center gap-2 border border-gray-300 rounded-full px-4 py-2 mb-5 lg:mb-8">
-              <img src="/logo.svg" alt="Coinbase" className="w-4 h-4" />
-              <span className="text-[13px] font-semibold text-gray-900 tracking-widest uppercase">Coinbase One</span>
+              <img src="/logo.svg" alt="Crypto App" className="w-4 h-4" />
+              <span className="text-[13px] font-semibold text-gray-900 tracking-widest uppercase">Crypto App One</span>
             </div>
             <h2 className="text-[40px] sm:text-[48px] lg:text-[56px] leading-[1.06] text-gray-900 mb-6 font-normal" style={{ letterSpacing: '-0.02em' }}>
               Zero trading fees, more rewards.
@@ -162,7 +162,7 @@ function ZeroFees() {
           </div>
           <div className="flex-1 order-1 lg:order-2">
             <div className="bg-[#f2f2f2] rounded-[50px] overflow-hidden aspect-[4/3] pt-6 px-8 pb-0 flex items-end justify-center">
-              <img src="/zero_fees_us.avif" alt="Zero trading fees with Coinbase One" className="w-3/4 h-auto object-contain" />
+              <img src="/zero_fees_us.avif" alt="Zero trading fees with Crypto App One" className="w-3/4 h-auto object-contain" />
             </div>
           </div>
         </div>
@@ -184,7 +184,7 @@ function Countless() {
           </div>
           <div className="flex-1 max-w-[520px]">
             <div className="inline-flex items-center gap-2 border border-gray-300 rounded-full px-4 py-2 mb-5 lg:mb-8">
-              <img src="/logo.svg" alt="Coinbase" className="w-4 h-4" />
+              <img src="/logo.svg" alt="Crypto App" className="w-4 h-4" />
               <span className="text-[13px] font-semibold text-gray-900 tracking-widest uppercase">Base App</span>
             </div>
             <h2 className="text-[40px] sm:text-[48px] lg:text-[56px] leading-[1.06] text-gray-900 mb-6 font-normal" style={{ letterSpacing: '-0.02em' }}>
@@ -208,7 +208,7 @@ const learnArticles = [
   {
     img: '/1.png',
     title: 'USDC: The digital dollar for the global crypto economy',
-    excerpt: 'Coinbase believes crypto will be part of the solution for creating an open financial system that is more efficient...',
+    excerpt: 'Crypto App believes crypto will be part of the solution for creating an open financial system that is more efficient...',
   },
   {
     img: '/2.png',
