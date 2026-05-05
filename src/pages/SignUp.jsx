@@ -11,10 +11,12 @@ export default function SignUp() {
   const [email, setEmail] = useState(searchParams.get('email') || '')
   const [password, setPassword] = useState('')
   const [error, setError] = useState('')
+  const [loading, setLoading] = useState(false)
 
   const handleSubmit = async (e) => {
     e.preventDefault()
     setError('')
+    setLoading(true)
     try {
       const response = await fetch(`${API_URL}/auth/register`, {
         method: 'POST',
@@ -23,14 +25,16 @@ export default function SignUp() {
         credentials: 'include',
       })
       const data = await response.json()
+      setLoading(false)
       if (response.ok) {
         login(data.data.user)
         navigate('/profile')
       } else {
-        setError(data.message || 'Registration failed')
+        setError(data.message || 'Registration failed. Please check your details.')
       }
     } catch (err) {
-      setError('Something went wrong. Please try again.')
+      setLoading(false)
+      setError('Network error or server is down. Please try again later.')
     }
   }
 
@@ -56,7 +60,11 @@ export default function SignUp() {
             Access all that our student project has to offer with a single account.
           </p>
 
-          {error && <p className="text-red-500 mb-4">{error}</p>}
+          {error && (
+            <div className="bg-red-500/10 border border-red-500/50 text-red-500 p-4 rounded-xl mb-6 text-[14px]">
+              {error}
+            </div>
+          )}
 
           <form onSubmit={handleSubmit} className="flex flex-col gap-4">
             <div>
@@ -67,7 +75,8 @@ export default function SignUp() {
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 required
-                className="w-full px-4 py-4 text-[16px] text-white placeholder-gray-500 bg-transparent border border-[#2a2b2f] rounded-2xl outline-none focus:border-blue-500 transition-all"
+                disabled={loading}
+                className="w-full px-4 py-4 text-[16px] text-white placeholder-gray-500 bg-transparent border border-[#2a2b2f] rounded-2xl outline-none focus:border-blue-500 transition-all disabled:opacity-50"
               />
             </div>
             <div>
@@ -78,7 +87,8 @@ export default function SignUp() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
-                className="w-full px-4 py-4 text-[16px] text-white placeholder-gray-500 bg-transparent border border-[#2a2b2f] rounded-2xl outline-none focus:border-blue-500 transition-all"
+                disabled={loading}
+                className="w-full px-4 py-4 text-[16px] text-white placeholder-gray-500 bg-transparent border border-[#2a2b2f] rounded-2xl outline-none focus:border-blue-500 transition-all disabled:opacity-50"
               />
             </div>
             <div>
@@ -89,15 +99,25 @@ export default function SignUp() {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
-                className="w-full px-4 py-4 text-[16px] text-white placeholder-gray-500 bg-transparent border border-[#2a2b2f] rounded-2xl outline-none focus:border-blue-500 transition-all"
+                disabled={loading}
+                className="w-full px-4 py-4 text-[16px] text-white placeholder-gray-500 bg-transparent border border-[#2a2b2f] rounded-2xl outline-none focus:border-blue-500 transition-all disabled:opacity-50"
               />
             </div>
 
             <button
               type="submit"
-              className="w-full py-4 text-[16px] font-semibold text-white bg-[#3d5af1] rounded-full hover:bg-[#3450e0] transition-colors mt-1"
+              disabled={loading}
+              className={`w-full py-4 text-[16px] font-semibold text-white rounded-full transition-all mt-1 ${loading ? 'bg-gray-600 cursor-not-allowed opacity-70' : 'bg-[#3d5af1] hover:bg-[#3450e0]'}`}
             >
-              Continue
+              {loading ? (
+                <span className="flex items-center justify-center gap-2">
+                  <svg className="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                  </svg>
+                  Processing...
+                </span>
+              ) : 'Continue'}
             </button>
           </form>
 
@@ -132,14 +152,6 @@ export default function SignUp() {
           <p className="text-center text-[15px] font-semibold text-white mt-8">
             Already have an account?{' '}
             <Link to="/signin" className="text-blue-500 hover:underline">Sign in</Link>
-          </p>
-
-          {/* Legal */}
-          <p className="text-center text-[13px] text-gray-500 mt-5 leading-relaxed">
-            By creating an account you certify that you are over the age of 18 and agree to our{' '}
-            <a href="#" className="underline hover:text-gray-300">Privacy Policy</a>{' '}
-            and{' '}
-            <a href="#" className="underline hover:text-gray-300">Cookie Policy</a>.
           </p>
 
         </div>
