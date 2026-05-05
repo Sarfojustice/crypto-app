@@ -9,6 +9,7 @@ export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false)
   const [searchOpen, setSearchOpen] = useState(false)
   const [searchQuery, setSearchQuery] = useState('')
+  const [loggingOut, setLoggingOut] = useState(false)
   const navigate = useNavigate()
 
   const navLinks = [
@@ -94,14 +95,20 @@ export default function Navbar() {
                 {user.name}
               </Link>
               <button 
+                disabled={loggingOut}
                 onClick={async () => {
-                  await fetch(`${API_URL}/auth/logout`, { credentials: 'include' })
-                  logout()
-                  navigate('/signin')
+                  setLoggingOut(true)
+                  try {
+                    await fetch(`${API_URL}/auth/logout`, { credentials: 'include' })
+                  } finally {
+                    logout()
+                    navigate('/signin')
+                    setLoggingOut(false)
+                  }
                 }}
-                className="px-5 py-2.5 text-[15px] font-medium text-gray-900 border border-gray-300 rounded-full hover:bg-gray-50 transition-colors"
+                className={`px-5 py-2.5 text-[15px] font-medium border border-gray-300 rounded-full transition-colors ${loggingOut ? 'bg-gray-100 text-gray-400 cursor-not-allowed' : 'text-gray-900 hover:bg-gray-50'}`}
               >
-                Logout
+                {loggingOut ? 'Logging out...' : 'Logout'}
               </button>
             </>
           ) : (
